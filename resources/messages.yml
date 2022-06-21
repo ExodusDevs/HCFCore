@@ -1,0 +1,47 @@
+# Change default messages / Cambia los mensajes predeterminados
+# ERROR
+not-player: "The player does not exist"
+not-numeric: "This character is not of type number"
+not-permission: "You do not have permissions to use this action"
+usage-message: "Use: %usage%"
+
+# MONEY
+add-money: "You successfully added %amount% to %name%'s money"
+add-my-money: "You added %amount% to your account"
+my-money: "You have %amount% of money"
+other-money: "%name% Money: %amount%"
+subtract-money: "You have successfully withdrawn %amount% of money, from player %name%"
+
+# DAMAGE / DEATH
+death-broadcast: "%name% died"
+death-fall-broadcast: "%name% died from falling from too high"
+death-player-item-broadcast: "%name% died by %opponent% using: %item%"
+death-player-broadcast: "%name% died by %opponent%"
+
+# KITS
+
+# FACTION
+not-player-faction: "The player %name% is not in the faction"
+not-faction: "There is no faction named: %faction_name%"
+create-faction: "The faction %faction_name% has been created successfully"
+max-players-faction: "The faction %faction_name% reached the maximum number of players in a faction!"
+join-faction: "%name% joined the faction."
+leave-faction: "%name% has left the faction"
+deposit-faction: "You have deposited $%amount% in faction %faction_name%"
+invite-player-faction: "You have been invited to the faction: %faction_name%, type /f accept to accept the invitation"
+invite-owner-faction: "You have invited %name% correctly, wait for him to accept the invitation"
+accept-invite-faction: "You accepted the invitation to the faction of %faction_name%, enjoy the team and don't break the rules"
+accept-invite-owner-faction: "The player %name% has agreed to join your faction"
+
+# SERVER
+message-welcome: "&7[&a+&7] &a%name% &7entered the server"
+message-leave: "&7[&4-&7] &4%name% &7left the server"
+
+# OTHER  
+broadcast-message: "%broadcast%"
+found-diamond: "%name% found %amount% of Diamonds."
+reached-border: "You have reached the border!"
+inventory-full: "The inventory is full"
+pvp-enable: "PvP has been successfully activated."
+pvp-disable: "PvP has been succesfully disabled"
+location: "%name%'s Current position: %x% : %y% : %z%"

@@ -1,0 +1,33 @@
+#   __  __  ____     ____           ____     _____   ____    ____      
+#  /\ \/\ \/\  _`\  /\  _`\        /\  _`\  /\  __`\/\  _`\ /\  _`\    
+#  \ \ \_\ \ \ \/\_\\ \ \L\_\      \ \ \/\_\\ \ \/\ \ \ \L\ \ \ \L\_\  
+#   \ \  _  \ \ \/_/_\ \  _\/_______\ \ \/_/_\ \ \ \ \ \ ,  /\ \  _\L  
+#    \ \ \ \ \ \ \L\ \\ \ \//\______\\ \ \L\ \\ \ \_\ \ \ \\ \\ \ \L\ \
+#     \ \_\ \_\ \____/ \ \_\\/______/ \ \____/ \ \_____\ \_\ \_\ \____/
+#      \/_/\/_/\/___/   \/_/           \/___/   \/_____/\/_/\/ /\/___/ 
+name: HCF
+version: 1.9.0
+main: hcf\Loader
+api: 4.0.0  #change in pm4
+author: iSrDxv, Wally_pacmero #Main Author
+#authors: [] #Collaborators
+prefix: "HCF-Core"
+website: "github.com/iSrDxv/HCF"
+description: "Plugin HardCore Fanctions for PocketMine-MP"
+
+permissions:
+  #stream.command:
+    #description: Use this command to alert you stream.
+    #default: true
+  kit.create.command:
+    description: "Create your kit to your liking"
+    default: op
+  kit.set.command:
+    description: "Edit your kit to your liking and improve it"
+    default: op
+  region.command:
+    description: "Create or edit the regions you have created"
+    default: op
+  crate.command:
+    description: "Create crates and edit them"
+    default: op

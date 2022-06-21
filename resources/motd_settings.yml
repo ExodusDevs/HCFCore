@@ -1,0 +1,8 @@
+message:
+ motd: "Test"
+ whitelist: "Whitelist"
+ sotw: "Sotw in {time}"
+ eotw: "Eote in {time}"
+whitelist: false
+eotw: false
+sotw: false

@@ -1,0 +1,1 @@
+carga los datos que envio el bot, para luego agregarlos al cargador

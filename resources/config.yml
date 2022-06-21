@@ -1,0 +1,44 @@
+# Name of your server
+server-name: "HCF CORE"
+# Description of your server
+server-description: "TEXT FROM HCF"
+# Color server
+server-color: "&6"
+# Map from server from HCF (Hardcore Factions)
+server-map: "1"
+
+# Spawn
+border-limit: 1000
+
+# Discord
+webhook-url: ""
+webhook-check: false
+
+# Cooldowns
+cooldown: 
+ EnderPearl: 30
+ CombatTag: 20
+ GoldenApple: 10
+ ArcherTag: 10
+ Snowball: 15
+ AntiTrapper: 10
+ 
+factions:
+ max-players: 4
+
+# How much is the maximum effect you want on items?
+# NOTE: in general not just one item
+max-effect-amplifier: 1
+
+# I recommend having a global database, to have compatibility or when transferring to another host and not lose data
+mysql:
+ #Database Host IP
+ host: "127.0.0.1"
+ #Database name, the classic "s344_HCF"
+ name: "HCF"
+ #database port
+ port: 3306
+ #Database user
+ user: "srclau"
+ #Database password
+ pass: "contraseña"
