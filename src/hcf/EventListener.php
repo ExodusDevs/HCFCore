@@ -6,7 +6,8 @@ use hcf\Loader;
 
 use hcf\listener\{
   BaseListener,
-  PlayerListener
+  PlayerListener,
+  RegionListener
 };
 
 class EventListener 
@@ -17,6 +18,7 @@ class EventListener
     $loader = Loader::getInstance();
     //$loader->getServer()->getPluginManager()->registerEvents(new BaseListener(), $loader);
     //$loader->getServer()->getPluginManager()->registerEvents(new PlayerListener(), $loader);
+    $loader->getServer()->getPluginManager()->registerEvents(new RegionListener($loader), $loader);
   }
   
 }

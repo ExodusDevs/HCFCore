@@ -5,7 +5,8 @@ namespace hcf\manager;
 use hcf\Loader;
 use hcf\command\{
   LFFCommand,
-  GkitCommand
+  GkitCommand,
+  RegionCommand
 };
 use hcf\faction\command\FactionCommand;
 
@@ -14,6 +15,7 @@ use pocketmine\utils\TextFormat;
 class CommandManager 
 {
   public const PREFIX = "[HCF: CommandManager]";
+  
   /**
   * @return void
   */
@@ -28,6 +30,7 @@ class CommandManager
     /*$commandMap->register("/faction", new FactionCommand());*/
     $commandMap->register("/ban", new BanCommand());
     $commandMap->register("/kick", new KickCommand());
+    $commandMap->register("/region", new RegionCommand());
     Loader::getInstance()->getLogger()->notice(self::PREFIX . " " . TextFormat::GREEN . "Commands loaded correctly");
   }
     

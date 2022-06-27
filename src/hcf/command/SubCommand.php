@@ -1,6 +1,6 @@
 <?php
 
-namespace hcf\commands;
+namespace hcf\command;
 
 use pocketmine\command\CommandSender;
 
@@ -28,9 +28,9 @@ abstract class SubCommand
     $this->aliases = $aliases;
   }
   
-  public function getName(): ?string
+  public function getName(): string
   {
-    return $this->name ?? null;
+    return $this->name;
   }
   
   public function getUsage(): string

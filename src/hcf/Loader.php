@@ -25,14 +25,15 @@ use libs\invmenu\InvMenuHandler;
 use hcf\EventListener;
 use hcf\provider\{
   MySQLProvider,
-  YAMLProvider
+  JsonProvider
 };
 use hcf\util\Utils;
 use hcf\discord\Logger;
 use hcf\fight\FightManager;
 use hcf\manager\{
   CommandManager,
-  KitManager
+  KitManager,
+  RegionManager
 };
 
 class Loader extends PluginBase {
@@ -45,10 +46,12 @@ class Loader extends PluginBase {
    
   private MySQLProvider $sqlProvider;
    
-  public $config = [];
-
+  private JsonProvider $jsonProvider;
+  
   private Logger $discord;
    
+  private RegionManager $regionManager;
+  
   public function onLoad(): void 
   {
     self::setInstance($this);
@@ -66,7 +69,7 @@ class Loader extends PluginBase {
       InvMenuHandler::register($this);
     }
     $this->sqlProvider = new MySQLProvider($this);
-    $this->ymlProvider = new YAMLProvider($this);
+    $this->jsonProvider = new JsonProvider($this);
     self::$utils = new Utils();
      
     //MOTD (soon task)
@@ -89,6 +92,9 @@ class Loader extends PluginBase {
     //Kit
     KitManager::init();
     
+    //Region
+    $this->regionManager = new RegionManager($this);
+    
     $this->getLogger()->info("=========================================="); 
     $this->getLogger()->notice("
  **      **   ******  ********         ******    *******   *******   ********
@@ -104,21 +110,6 @@ class Loader extends PluginBase {
     $author = implode(",", $this->getDescription()->getAuthors());
     $this->getLogger()->notice("Authors: §b{$author}");
     $this->getLogger()->info("==========================================");
-  // ranks
-$files = ["players"];
-        foreach ($files as $file) {
-            if (!file_exists($this->getDataFolder().$file)) {
-                @mkdir($this->getDataFolder().$file);
-                $this->getLogger()->info(TextFormat::GRAY."Las carpetas ".TextFormat::GREEN."{$file} ".TextFormat::GRAY."se crearon con exito");
-            }else{
-                $this->getLogger()->warning(TextFormat::RED."ya fueron creadas las carpetas ".TextFormat::GREEN."{$file}");
-            }
-        
-        #SAVE RESOURCES
-        $this->saveResource("config.json"); $config = new Config($this->getDataFolder()."config.json", Config::JSON);
-
-    }
-
   }
    
   public static function getInstance(): Loader
@@ -130,20 +121,25 @@ $files = ["players"];
   {
      return $this->discord;
   }
-   
+  
   public static function getUtils() : Utils 
   {
         return self::$utils;
   }
    
-  public function getYAMLProvider(): YAMLProvider
+  public function getJsonProvider(): JsonProvider
   {
-     return $this->ymlProvider;
+     return $this->jsonProvider;
   }
    
   public function getMySQLProvider(): MySQLProvider
   {
      return $this->sqlProvider;
   }
-   
+  
+  public function getRegionManager(): RegionManager
+  {
+    return $this->regionManager;
+  }
+  
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace hcf\util;
+namespace libs\math;
 
 use pocketmine\math\Vector3;
 use pocketmine\entity\Location;
 use pocketmine\Server;
 
-class Math
+trait Math
 {
   
   public static function inRegion(Vector3 $playerPosition, Vector3 $position1, Vector3 $position2): bool
