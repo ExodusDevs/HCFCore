@@ -26,13 +26,13 @@ faction:
       - "Player"
       - "Owner"
  claim:
-  maximum: 80
-  price-per-block: 10
+    maximum: 80
+    price-per-block: 10
  deaths-until-raidable:
-  maximum: 4.5
-  regeneration: 1.5
-  frozee-time: 360
-  lose: 
+    maximum: 4.5
+    regeneration: 1.5
+    frozee-time: 360
+    lose: 
  max-players: 4
  logs: false
  start-balance: 1000
