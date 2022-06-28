@@ -2,7 +2,11 @@ message:
  motd: "Test"
  whitelist: "Whitelist"
  sotw: "Sotw in {time}"
- eotw: "Eote in {time}"
+ eotw: "Eotw in {time}"
+ ffa: "FFA in {time}"
+ koth: "Koth {name} in {time}"
 whitelist: false
 eotw: false
 sotw: false
+ffa: false
+koth: false

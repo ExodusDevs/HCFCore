@@ -2,8 +2,6 @@
 server-name: "HCF CORE"
 # Description of your server
 server-description: "TEXT FROM HCF"
-# Color server
-server-color: "&6"
 # Map from server from HCF (Hardcore Factions)
 server-map: "1"
 
