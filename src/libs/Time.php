@@ -26,5 +26,7 @@ class Time
   {
     return gmdate("j:n:i:s", $value);
   }
+  
+  //public function intToDay()
     
 }
