@@ -10,7 +10,7 @@ version: 1.9.0
 main: hcf\Loader
 api: 5.0.0 #change in pm5
 author: iSrDxv #Main Author
-authors: [Wally_pacmero] #Collaborators
+authors: [] #Collaborators
 prefix: "HCF-Core"
 website: "github.com/iSrDxv/HCF"
 description: "Plugin HardCore Fanctions for PocketMine-MP"
