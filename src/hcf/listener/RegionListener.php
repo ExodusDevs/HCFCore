@@ -2,7 +2,7 @@
 
 namespace hcf\listener;
 
-use hcf\player\PlayerHCF;
+use hcf\session\Session;
 use hcf\refion\utils\RegionPosition;
 
 use pocietmine\event\{
@@ -26,13 +26,13 @@ class RegionListener implements Listener
   public function onExhaust(PlayerExhaustEvent $event): void
   {
     $player = $event->getPlayer();
-    if (!$player instanceof PlayerHCF || $this->loader->getServer()->isOp($player->getName())) {
+    if (!$player instanceof Session || $this->loader->getServer()->isOp($player->getName())) {
       return;
     }
     $region = $this->loader->getRegionManager()->getRegionInLocation($player->getPosition());
     if ($region !== null) {
       if ($region->getHungerRule()) {
-        $event->setCancelled();
+        $event->cancel();
       }
     }
   }
@@ -40,13 +40,13 @@ class RegionListener implements Listener
   public function onBlockPlace(BlockPlaceEvent $event): void
   {
     $player = $event->getPlayer();
-    if (!$player instanceof PlayerHCF || $this->loader->getServer()->isOp($player->getName())) {
+    if (!$player instanceof Session || $this->loader->getServer()->isOp($player->getName())) {
       return;
     }
     $region = $this->loader->getRegionManager()->getRegionInLocation($event->getBlock()->getPosition());
     if ($region !== null) {
       if ($region->getBlockRule() === false) {
-        $event->setCancelled();
+        $event->cancel();
       }
     }
   }
@@ -54,13 +54,13 @@ class RegionListener implements Listener
   public function onBlockBreak(BlockBreakEvent $event): void
   {
     $player = $event->getPlayer();
-    if (!$player instanceof PlayerHCF || $this->loader->getServer()->isOp($player->getName())) {
+    if (!$player instanceof Session || $this->loader->getServer()->isOp($player->getName())) {
       return;
     }
     $region = $this->loader->getRegionManager()->getRegionInLocation($event->getBlock()->getPosition());
     if (isset($region)) {
       if ($region->getBlockRule() === false) {
-        $event->setCancelled();
+        $event->cancel();
       }
     }
   }
@@ -68,13 +68,13 @@ class RegionListener implements Listener
   public function onDamage(EntityDamageEvent $event): void
   {
     $entity = $event->getEntity();
-    if (!$entity instanceof PlayerHCF) {
+    if (!$entity instanceof Session) {
       return;
     }
     $region = $this->loader->getRegionManager()->getRegionInLocation($entity->getPosition());
     if (isset($region)) {
       if ($region->getPvpRule()) {
-        $event->setCancelled();
+        $event->cancel();
       }
     }
   }
@@ -87,7 +87,6 @@ class RegionListener implements Listener
       $creator = $this->loader->getRegionManager()->getCreator($player->getName());
       if ($creator->getCountSpawn() === 1) {
         if (isset($creator->getRegionData()->first_position)) {
-          $creator->getRegionData()->first_position = RegionPosition::fromObject($event->getBlock()->getPosition());
           $creator->setCountSpawn(2);
           return;
         }
@@ -106,13 +105,13 @@ class RegionListener implements Listener
         if (isset($creator->getRegionData()->second_position)) {
           $creator->getRegionData()->second_position = RegionPosition::fromObject($event->getBlock()->getPosition());
           $creator->setCountSpawn(0);
-          $event->setCancelled();
+          $event->cancel();
           return;
         }
         $creator->getRegionData()->second_position = RegionPosition::fromObject($event->getBlock()->getPosition());
         $creator->setCountSpawn(0);
         $this->loader->getRegionManager()->setRegion($player->getName(), $creator->getRegionData());
-        $event->setCancelled();
+        $event->cancel();
       }
     }
   }
